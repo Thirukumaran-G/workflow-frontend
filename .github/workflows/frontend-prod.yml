@@ -69,7 +69,7 @@ jobs:
             - name: Set cache headers
               run: |
                 gsutil setmeta -h "Cache-Control:no-cache, no-store, must-revalidate" \
-                    gs://${{ env.GCS_BUCKET }}/index.html
+                    gs://${{ env.GCS_BUCKET }}/index.html || true
 
                 gsutil -m setmeta -h "Cache-Control:public, max-age=31536000, immutable" \
                      $(gsutil ls "gs://${{ env.GCS_BUCKET }}/assets/") 2>/dev/null || true
