@@ -64,7 +64,7 @@ jobs:
             
             - name: Deploy to GCS (root of bucket)
               run: |
-                gsutil -m rsync -r -d dist/ gs://${{ env.GCS_BUCKET }}/
+                gsutil -m rsync -r -d dist/ gs://${{ env.GCS_BUCKET }}
             
             - name: Set cache headers
               run: |
